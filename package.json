@@ -1,0 +1,30 @@
+{
+  "name": "employee-rabbitmq-cap",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SAP CAP Employee OData service with RabbitMQ (CloudAMQP) producer and consumer",
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "consumer": "node consumer.js"
+  },
+  "dependencies": {
+    "@sap/cds": "^10",
+    "amqplib": "^0.10.8",
+    "express": "^5",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^3"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db/employee.db"
+        }
+      }
+    }
+  }
+}
