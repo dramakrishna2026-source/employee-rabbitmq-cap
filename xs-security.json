@@ -1,0 +1,32 @@
+
+{
+  "xsappname": "employee-rabbitmq-cap",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.EmployeeRead",
+      "description": "Read employee records"
+    },
+    {
+      "name": "$XSAPPNAME.EmployeeWrite",
+      "description": "Create and update employee records"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "EmployeeViewer",
+      "description": "Can read employee records",
+      "scope-references": [
+        "$XSAPPNAME.EmployeeRead"
+      ]
+    },
+    {
+      "name": "EmployeeManager",
+      "description": "Can read and modify employee records",
+      "scope-references": [
+        "$XSAPPNAME.EmployeeRead",
+        "$XSAPPNAME.EmployeeWrite"
+      ]
+    }
+  ]
+}

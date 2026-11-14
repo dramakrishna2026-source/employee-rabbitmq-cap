@@ -1,0 +1,26 @@
+
+_schema-version: "3.3"
+ID: employee-rabbitmq-cap
+version: 1.0.0
+
+modules:
+  - name: employee-rabbitmq-cap-srv
+    type: nodejs
+    path: .
+    parameters:
+      memory: 512M
+      disk-quota: 512M
+      instances: 1
+      buildpack: nodejs_buildpack
+    properties:
+      NODE_ENV: production
+    requires:
+      - name: employee-rabbitmq-cap-auth
+
+resources:
+  - name: employee-rabbitmq-cap-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json

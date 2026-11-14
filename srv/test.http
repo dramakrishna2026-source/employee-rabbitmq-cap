@@ -1,0 +1,5 @@
+
+### Get Employees
+GET http://localhost:4004/odata/v4/employee/Employees
+Authorization: Basic YWxpY2U6d29uZGVybGFuZA==
+Accept: application/json
